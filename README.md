@@ -8,6 +8,7 @@ Este proyecto implementa un compilador sencillo que realiza análisis léxico, a
 > **Nota:** No será necesario compilar todos los archivos Java, ya que se proporcionará el archivo `Main.class` ya compilado. Solo debes descargarlo y ejecutar el comando `java Main entrada.txt salida.txt` para que el programa realice automáticamente todas las etapas de análisis y generación de código.
 ## Tabla de Contenidos
 
+- [Información e Integrantes](#información-e-integrantes)
 - [Requisitos](#requisitos)
 - [Estructura de Archivos](#estructura-de-archivos)
 - [Instalación y Ejecución](#instalación-y-ejecución)
@@ -20,8 +21,20 @@ Este proyecto implementa un compilador sencillo que realiza análisis léxico, a
 - [Ejemplo de Uso](#ejemplo-de-uso)
 - [Créditos](#créditos)
 
----
 
+---
+## Información e Integrantes
+
+- **Equipo:**
+    - Nolasco Ramírez Heber
+    - Gonzalez Cavazos Erick Alan
+    - Hernandez Gonzalez Luis Angel
+
+- **Profesor:** [Ing. Muñoz Quintero Dante Adolfo]
+- **Materia:** Programación de Sistemas Base II
+- **Universidad:** [Universidad Autonoma de Tamaulipas UAT]
+
+---
 ## Requisitos
 
 - **Java JDK** (recomendado 17+)
