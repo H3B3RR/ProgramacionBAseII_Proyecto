@@ -16,6 +16,7 @@ Este proyecto implementa un compilador sencillo que realiza análisis léxico, a
     - [3. Ejecutar el programa principal](#3-ejecutar-el-programa-principal)
     - [4. (Opcional) Ejecutar la interfaz web con IA](#4-opcional-ejecutar-la-interfaz-web-con-ia)
 - [Descripción de Archivos Principales](#descripción-de-archivos-principales)
+- [Hugging Face](#hugging-face)
 - [Ejemplo de Uso](#ejemplo-de-uso)
 - [Créditos](#créditos)
 
@@ -112,6 +113,49 @@ Esto abrirá una interfaz web donde puedes pegar código y recibir análisis sin
 - **Token.java**: Clase simple para almacenar el tipo y valor de cada token reconocido por el lexer.
 - **callapi.java**: Permite enviar código fuente a una API de Hugging Face para obtener análisis sintáctico y lógico asistido por IA. Recibe el resultado y lo muestra en consola.
 - **app.py** y **requeriments.txt**: Implementan una interfaz web con Gradio y análisis IA usando modelos de Hugging Face. `requeriments.txt` contiene las dependencias necesarias para Python.
+
+---
+## Hugging Face
+
+### ¿Cómo se creó y cómo funciona la app de Hugging Face?
+
+La aplicación web utiliza [Gradio](https://gradio.app/) para crear una interfaz sencilla donde puedes pegar tu código y recibir un análisis automático. El proceso se divide en dos etapas principales:
+
+1. **Análisis de sintaxis:**  
+    Se emplea la librería `pyflakes` para detectar errores de sintaxis en el código Python ingresado. Si se encuentran errores, estos se muestran directamente al usuario.
+
+2. **Análisis semántico con IA:**  
+    Si el código no presenta errores de sintaxis, se utiliza el modelo `Salesforce/codet5-base` de Hugging Face mediante la librería `transformers`. Este modelo genera un análisis semántico del código, proporcionando sugerencias o explicaciones automáticas.
+
+#### Código principal de la app
+
+```python
+import gradio as gr
+from transformers import pipeline
+import pyflakes.api
+from io import StringIO
+import sys
+
+# Análisis semántico con modelo Hugging Face
+model = pipeline("text2text-generation", model="Salesforce/codet5-base")
+
+def analizar_codigo(code):
+     # Análisis de sintaxis
+     buffer = StringIO()
+     sys.stderr = buffer
+     pyflakes.api.check(code, "análisis")
+     errores = buffer.getvalue()
+     sys.stderr = sys.__stderr__
+     
+     if errores:
+          return f"Errores de sintaxis:\n{errores}"
+     
+     # Análisis semántico
+     resultado = model(code, max_length=256, do_sample=False)
+     return f"Análisis semántico:\n{resultado[0]['generated_text']}"
+
+gr.Interface(fn=analizar_codigo, inputs="text", outputs="text").launch()
+```
 
 ---
 
