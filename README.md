@@ -208,5 +208,5 @@ Salida esperada en consola:
 
 Proyecto realizado para la materia **Programación de Sistemas Base II**.
 
-GitHub: [https://github.com/heber-nolasco](https://github.com/heber-nolasco)
+GitHub: [https://github.com/heber-nolasco](https://github.com/H3B3RR)
 
