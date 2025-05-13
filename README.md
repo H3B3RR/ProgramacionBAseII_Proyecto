@@ -1,6 +1,8 @@
 # Proyecto: Analizador Léxico, Semántico y Generador de Código Intermedio
 
 [Ver documentación del proyecto](01_ProyectoFinal.pdf)
+[Ver app Hugging Face](https://huggingface.co/spaces/HBAB/proyecto)
+
 ## Descripción
 
 Este proyecto implementa un compilador sencillo que realiza análisis léxico, análisis semántico y generación de código intermedio para fragmentos de código escritos en Python o JavaScript. Integra una API de Hugging Face para análisis sintáctico y lógico asistido por IA, y una interfaz web opcional con Gradio.
