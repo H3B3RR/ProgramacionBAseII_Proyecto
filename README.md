@@ -32,6 +32,8 @@ Este proyecto implementa un compilador sencillo que realiza análisis léxico, a
     - Nolasco Ramírez Heber
     - Gonzalez Cavazos Erick Alan
     - Hernandez Gonzalez Luis Angel
+    - Cruz Bonifacio Luis Fernando
+
 
 - **Profesor:** [Ing. Muñoz Quintero Dante Adolfo]
 - **Materia:** Programación de Sistemas Base II
